@@ -10,6 +10,7 @@
 # Github: https://github/TechnicalDC
 
 # This is simple script for managing i3 layouts.
+# NOTE: It's messy
 # Rquires: 
 #		- Vim
 #		- Rofi
