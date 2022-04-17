@@ -16,9 +16,10 @@
 #		- Rofi
 #		- Jq
 
+# Setting defaults
 LAYOUT_DIR="$HOME/.config/i3/layouts"
 EDIT_CMD="vim"
-TERMINAL="urxvt"
+TERMINAL="st"
 
 edit_layout () {
 	$EDIT_CMD --headless -c ':%s/\/\/ "/\t"/' -c 'wqa' -- $1
@@ -55,8 +56,8 @@ launch_apps () {
 		| sed -e 's/"^\?//g' -e 's/://g' -e 's/\$,\?"\?//g' > /tmp/nodes
 	while read LINE ; do
 		VAL=$(echo $LINE | cut -d' ' -f2)
-		echo $TERMINAL
-		$TERMINAL -name $VAL -e $VAL &
+		echo $LINE
+		$TERMINAL -n $VAL -e $VAL &
 	done < /tmp/nodes
 }
 
